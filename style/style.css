@@ -37,6 +37,10 @@ body {
   top: 20vh;
 }
 
+.song {
+  visibility: hidden;
+}
+
 .one {
   font-size: 4.5rem;
 }

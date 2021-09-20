@@ -1,3 +1,24 @@
+// Run when the webpage is loaded
+window.addEventListener('load', () => {
+  Swal.fire({
+    title: 'Are you sure to play music in background?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.querySelector('.song').play();
+      resolveFetch().then(animationTimeline());
+    } else {
+      resolveFetch().then(animationTimeline());
+    }
+  })
+})
+
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
@@ -29,8 +50,8 @@ const animationTimeline = () => {
   const tl = new TimelineMax();
 
   tl.to(".container", 0.1, {
-    visibility: "visible",
-  })
+      visibility: "visible",
+    })
     .from(".one", 0.7, {
       opacity: 0,
       y: 10,
@@ -41,8 +62,7 @@ const animationTimeline = () => {
     })
     .to(
       ".one",
-      0.7,
-      {
+      0.7, {
         opacity: 0,
         y: 10,
       },
@@ -50,8 +70,7 @@ const animationTimeline = () => {
     )
     .to(
       ".two",
-      0.7,
-      {
+      0.7, {
         opacity: 0,
         y: 10,
       },
@@ -64,8 +83,7 @@ const animationTimeline = () => {
     })
     .to(
       ".three",
-      0.7,
-      {
+      0.7, {
         opacity: 0,
         y: 10,
       },
@@ -81,8 +99,7 @@ const animationTimeline = () => {
     })
     .staggerTo(
       ".hbd-chatbox span",
-      1.5,
-      {
+      1.5, {
         visibility: "visible",
       },
       0.05
@@ -92,8 +109,7 @@ const animationTimeline = () => {
     })
     .to(
       ".four",
-      0.5,
-      {
+      0.5, {
         scale: 0.2,
         opacity: 0,
         y: -150,
@@ -116,8 +132,7 @@ const animationTimeline = () => {
     .to(".idea-4", 0.7, ideaTextTransLeave, "+=1.5")
     .from(
       ".idea-5",
-      0.7,
-      {
+      0.7, {
         rotationX: 15,
         rotationZ: -10,
         skewY: "-5deg",
@@ -129,8 +144,7 @@ const animationTimeline = () => {
     )
     .to(
       ".idea-5 span",
-      0.7,
-      {
+      0.7, {
         rotation: 90,
         x: 8,
       },
@@ -138,8 +152,7 @@ const animationTimeline = () => {
     )
     .to(
       ".idea-5",
-      0.7,
-      {
+      0.7, {
         scale: 0.2,
         opacity: 0,
       },
@@ -147,8 +160,7 @@ const animationTimeline = () => {
     )
     .staggerFrom(
       ".idea-6 span",
-      0.8,
-      {
+      0.8, {
         scale: 3,
         opacity: 0,
         rotation: 15,
@@ -158,8 +170,7 @@ const animationTimeline = () => {
     )
     .staggerTo(
       ".idea-6 span",
-      0.8,
-      {
+      0.8, {
         scale: 3,
         opacity: 0,
         rotation: -15,
@@ -170,12 +181,10 @@ const animationTimeline = () => {
     )
     .staggerFromTo(
       ".baloons img",
-      2.5,
-      {
+      2.5, {
         opacity: 0.9,
         y: 1400,
-      },
-      {
+      }, {
         opacity: 1,
         y: -1000,
       },
@@ -183,8 +192,7 @@ const animationTimeline = () => {
     )
     .from(
       ".lydia-dp",
-      0.5,
-      {
+      0.5, {
         scale: 3.5,
         opacity: 0,
         x: 25,
@@ -201,8 +209,7 @@ const animationTimeline = () => {
     })
     .staggerFrom(
       ".wish-hbd span",
-      0.7,
-      {
+      0.7, {
         opacity: 0,
         y: -50,
         // scale: 0.3,
@@ -214,12 +221,10 @@ const animationTimeline = () => {
     )
     .staggerFromTo(
       ".wish-hbd span",
-      0.7,
-      {
+      0.7, {
         scale: 1.4,
         rotationY: 150,
-      },
-      {
+      }, {
         scale: 1,
         rotationY: 0,
         color: "#ff69b4",
@@ -230,8 +235,7 @@ const animationTimeline = () => {
     )
     .from(
       ".wish h5",
-      0.5,
-      {
+      0.5, {
         opacity: 0,
         y: 10,
         skewX: "-15deg",
@@ -240,8 +244,7 @@ const animationTimeline = () => {
     )
     .staggerTo(
       ".eight svg",
-      1.5,
-      {
+      1.5, {
         visibility: "visible",
         opacity: 0,
         scale: 80,
@@ -258,8 +261,7 @@ const animationTimeline = () => {
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(
       ".last-smile",
-      0.5,
-      {
+      0.5, {
         rotation: 90,
       },
       "+=1"
@@ -301,5 +303,3 @@ const resolveFetch = () => {
     resolve("Fetch done!");
   });
 };
-
-resolveFetch().then(animationTimeline());
