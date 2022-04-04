@@ -1,7 +1,7 @@
 // Run when the webpage is loaded
 window.addEventListener('load', () => {
   Swal.fire({
-    title: 'Bade di laguan in background moal?',
+    title: 'Are you sure to play music in background?',
     // text: "You won't be able to revert this!",
     icon: 'warning',
     showCancelButton: true,
